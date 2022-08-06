@@ -10,7 +10,8 @@
     "type-check": "tsc",
     "lint": "yarn eslint .",
     "lint-fix": "yarn lint --fix",
-    "test-all": "yarn lint && yarn type-check"
+    "test-all": "yarn lint && yarn type-check",
+    "prepare": "husky install"
   },
   "dependencies": {
     "next": "12.2.4",

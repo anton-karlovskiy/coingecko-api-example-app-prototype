@@ -12,6 +12,7 @@ import SFTable, {
   SFTd
 } from 'components/UI/SFTable';
 import { EXCHANGE_COUNT } from 'config/general';
+import { COINGECKO_API_URL } from 'config/links';
 import { CoingeckoExchange } from 'types/general.d';
 import type { NextPageWithLayout } from 'types/general.d';
 
@@ -85,7 +86,7 @@ const Home: NextPage<Props> = ({ exchanges }) => {
 };
 
 export async function getServerSideProps() {
-  const res = await fetch(`https://api.coingecko.com/api/v3/exchanges?per_page=${EXCHANGE_COUNT}`);
+  const res = await fetch(`${COINGECKO_API_URL}/exchanges?per_page=${EXCHANGE_COUNT}`);
   const data = await res.json();
 
   return { props: { exchanges: data } };

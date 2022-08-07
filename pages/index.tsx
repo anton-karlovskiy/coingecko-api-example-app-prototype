@@ -5,6 +5,7 @@ import clsx from 'clsx';
 
 import Layout from 'parts/Layout';
 import RouterLink from 'components/links/RouterLink';
+import ExternalAnchorLink from 'components/links/ExternalAnchorLink';
 import SFTable, {
   SFThead,
   SFTr,
@@ -42,6 +43,9 @@ const Home: NextPage<Props> = ({ exchanges }) => {
           <SFTh>
             Trust rank
           </SFTh>
+          <SFTh>
+            Link
+          </SFTh>
         </SFTr>
       </SFThead>
       <SFTbody>
@@ -55,7 +59,9 @@ const Home: NextPage<Props> = ({ exchanges }) => {
                 {item.country}
               </SFTd>
               <SFTd>
-                {item.url}
+                <ExternalAnchorLink href={item.url}>
+                  {item.name}
+                </ExternalAnchorLink>
               </SFTd>
               <SFTd>
                 <div

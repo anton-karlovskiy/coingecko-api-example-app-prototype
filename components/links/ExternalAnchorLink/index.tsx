@@ -21,8 +21,8 @@ const ExternalAnchorLink = ({ children, className, ...rest }: Props) => {
       {...rest}>
       <span>{children}</span>
       <ExternalLinkIcon
-        width={24}
-        height={24} />
+        width={18}
+        height={18} />
     </AnchorLink>
   );
 };

@@ -7,10 +7,12 @@ interface Props {
 }
 
 const Home: NextPage<Props> = ({ exchanges }) => {
+  // ray test touch <
   console.log('exchanges => ', exchanges);
+  // ray test touch >
 
   return (
-    <>Home</>
+    <span className='text-gray-900'>Home</span>
   );
 };
 

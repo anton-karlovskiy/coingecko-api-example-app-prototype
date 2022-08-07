@@ -2,6 +2,7 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 
 import 'styles/globals.css';
+import 'components/UI/SFTable/super-responsive-table-style.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

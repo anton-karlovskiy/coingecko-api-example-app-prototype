@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router';
 import type { ReactElement } from 'react';
 import type { NextPage, GetServerSideProps } from 'next';
 
@@ -12,13 +11,23 @@ interface Props {
 }
 
 const Exchange: NextPage<Props> = ({ exchange }) => {
-  const router = useRouter();
-  const { id } = router.query;
-
-  console.log('exchange => ', exchange);
-
   return (
-    <>{id}</>
+    <dl>
+      <dt>Name</dt>
+      <dd>{exchange.name}</dd>
+      <dt>Country</dt>
+      <dd>{exchange.country}</dd>
+      <dt>Trust rank</dt>
+      <dd>{exchange.trust_score_rank}</dd>
+      <dt>Logo</dt>
+      <dd>{exchange.image}</dd>
+      <dt>Year of establishment</dt>
+      <dd>{exchange.year_established}</dd>
+      <dt>URL</dt>
+      <dd>{exchange.url}</dd>
+      <dt>Description</dt>
+      <dd>{exchange.description}</dd>
+    </dl>
   );
 };
 

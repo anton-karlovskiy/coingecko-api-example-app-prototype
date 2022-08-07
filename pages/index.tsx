@@ -4,6 +4,7 @@ import Image from 'next/image';
 import clsx from 'clsx';
 
 import Layout from 'parts/Layout';
+import RouterLink from 'components/links/RouterLink';
 import SFTable, {
   SFThead,
   SFTr,
@@ -13,6 +14,7 @@ import SFTable, {
 } from 'components/UI/SFTable';
 import { EXCHANGE_COUNT } from 'config/general';
 import { COINGECKO_API_URL } from 'config/links';
+import { PAGES } from 'utils/constants/links';
 import { CoingeckoExchange } from 'types/general.d';
 import type { NextPageWithLayout } from 'types/general.d';
 
@@ -68,8 +70,13 @@ const Home: NextPage<Props> = ({ exchanges }) => {
                     width={48} />
                 </div>
               </SFTd>
-              <SFTd>
+              <SFTd className='text-center'>
                 {item.trust_score_rank}
+              </SFTd>
+              <SFTd>
+                <RouterLink href={`${PAGES.EXCHANGE}/${item.id}`}>
+                  Details
+                </RouterLink>
               </SFTd>
             </SFTr>
           );

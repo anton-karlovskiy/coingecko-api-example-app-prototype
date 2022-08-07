@@ -13,7 +13,10 @@ const SFTable = ({
   ...rest
 }: React.ComponentPropsWithoutRef<'table'>) => (
   <Table
-    className={clsx('text-base', className)}
+    className={clsx(
+      'text-base',
+      className
+    )}
     {...rest} />
 );
 
@@ -25,10 +28,6 @@ const SFTbody = ({
     className={clsx(
       'border-t',
       'border-gray-900',
-      'divide-y',
-      'divide-gray-700',
-      'sm:divide-y-0',
-      'sm:divide-transparent',
       className
     )}
     {...rest} />
@@ -40,8 +39,6 @@ const SFTr = ({
 }: React.ComponentPropsWithoutRef<'tr'>) => (
   <Tr
     className={clsx(
-      'py-4',
-      'sm:py-0',
       'space-y-2',
       'sm:space-y-0',
       className
@@ -69,10 +66,10 @@ const SFTh = ({
 }: React.ComponentPropsWithoutRef<'th'>) => (
   <Th
     className={clsx(
-      'sm:text-gray-900',
+      'text-gray-900',
+      'font-semibold',
       'sm:h-14',
       'text-left',
-      'font-semibold',
       className
     )}
     {...rest} />

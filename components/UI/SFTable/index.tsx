@@ -53,7 +53,7 @@ const SFTd = ({
   <Td
     className={clsx(
       'sm:border-b',
-      'sm:border-gray-700',
+      'sm:border-gray-500',
       'sm:h-14',
       className
     )}

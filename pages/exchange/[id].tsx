@@ -4,7 +4,9 @@ import type { ReactElement } from 'react';
 import type { NextPage, GetServerSideProps } from 'next';
 
 import Layout from 'parts/Layout';
+import RouterLink from 'components/links/RouterLink';
 import { COINGECKO_API_URL } from 'config/links';
+import { PAGES } from 'utils/constants/links';
 import type { NextPageWithLayout } from 'types/general.d';
 import { CoingeckoExchange } from 'types/general.d';
 
@@ -63,28 +65,38 @@ const Dd = ({
 
 const Exchange: NextPage<Props> = ({ exchange }) => {
   return (
-    <Dl>
-      <Dt>Name:</Dt>
-      <Dd>{exchange.name}</Dd>
-      <Dt>Country:</Dt>
-      <Dd>{exchange.country}</Dd>
-      <Dt>Trust rank:</Dt>
-      <Dd>{exchange.trust_score_rank}</Dd>
-      <Dt>Logo:</Dt>
-      <Dd>
-        <Image
-          src={exchange.image}
-          alt='Logo of the exchange'
-          height={48}
-          width={48} />
-      </Dd>
-      <Dt>Year of establishment:</Dt>
-      <Dd>{exchange.year_established}</Dd>
-      <Dt>URL:</Dt>
-      <Dd>{exchange.url}</Dd>
-      <Dt>Description:</Dt>
-      <Dd>{exchange.description}</Dd>
-    </Dl>
+    <>
+      <RouterLink
+        href={PAGES.HOME}
+        className={clsx(
+          'text-lg',
+          'font-semibold'
+        )}>
+        Go back to Main
+      </RouterLink>
+      <Dl>
+        <Dt>Name:</Dt>
+        <Dd>{exchange.name}</Dd>
+        <Dt>Country:</Dt>
+        <Dd>{exchange.country}</Dd>
+        <Dt>Trust rank:</Dt>
+        <Dd>{exchange.trust_score_rank}</Dd>
+        <Dt>Logo:</Dt>
+        <Dd>
+          <Image
+            src={exchange.image}
+            alt='Logo of the exchange'
+            height={48}
+            width={48} />
+        </Dd>
+        <Dt>Year of establishment:</Dt>
+        <Dd>{exchange.year_established}</Dd>
+        <Dt>URL:</Dt>
+        <Dd>{exchange.url}</Dd>
+        <Dt>Description:</Dt>
+        <Dd className='truncate'>{exchange.description}</Dd>
+      </Dl>
+    </>
   );
 };
 

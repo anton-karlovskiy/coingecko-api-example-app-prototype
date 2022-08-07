@@ -8,8 +8,9 @@ const AnchorLink = React.forwardRef<HTMLAnchorElement, Props>(
     <a
       ref={ref}
       className={clsx(
-        'px-2',
+        'px-1',
         'py-0.5',
+        'underline',
         'hover:bg-gray-200',
         'hover:rounded-md',
         'focus:rounded-md',

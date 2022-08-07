@@ -1,3 +1,5 @@
+import Image from 'next/image';
+import clsx from 'clsx';
 import type { ReactElement } from 'react';
 import type { NextPage, GetServerSideProps } from 'next';
 
@@ -10,24 +12,79 @@ interface Props {
   exchange: CoingeckoExchange;
 }
 
+const Dl = ({
+  className,
+  ...rest
+}: React.ComponentPropsWithRef<'dl'>) => (
+  <dl
+    className={clsx(
+      'flex',
+      'flex-col',
+      'sm:items-center',
+      'sm:flex-wrap',
+      'sm:flex-row',
+      'whitespace-nowrap',
+      className
+    )}
+    {...rest} />
+);
+
+const Dt = ({
+  className,
+  ...rest
+}: React.ComponentPropsWithRef<'dt'>) => (
+  <dt
+    className={clsx(
+      'text-gray-500',
+      'whitespace-nowrap',
+      className
+    )}
+    {...rest} />
+);
+
+const Dd = ({
+  className,
+  ...rest
+}: React.ComponentPropsWithRef<'dd'>) => (
+  <dd
+    className={clsx(
+      'ml-4',
+      'sm:ml-2',
+      'mt-2',
+      'sm:mt-0',
+      'mb-4',
+      'sm:mb-0',
+      'sm:mr-4',
+      'font-semibold',
+      className
+    )}
+    {...rest} />
+);
+
 const Exchange: NextPage<Props> = ({ exchange }) => {
   return (
-    <dl>
-      <dt>Name</dt>
-      <dd>{exchange.name}</dd>
-      <dt>Country</dt>
-      <dd>{exchange.country}</dd>
-      <dt>Trust rank</dt>
-      <dd>{exchange.trust_score_rank}</dd>
-      <dt>Logo</dt>
-      <dd>{exchange.image}</dd>
-      <dt>Year of establishment</dt>
-      <dd>{exchange.year_established}</dd>
-      <dt>URL</dt>
-      <dd>{exchange.url}</dd>
-      <dt>Description</dt>
-      <dd>{exchange.description}</dd>
-    </dl>
+    <Dl>
+      <Dt>Name:</Dt>
+      <Dd>{exchange.name}</Dd>
+      <Dt>Country:</Dt>
+      <Dd>{exchange.country}</Dd>
+      <Dt>Trust rank:</Dt>
+      <Dd>{exchange.trust_score_rank}</Dd>
+      <Dt>Logo:</Dt>
+      <Dd>
+        <Image
+          src={exchange.image}
+          alt='Logo of the exchange'
+          height={48}
+          width={48} />
+      </Dd>
+      <Dt>Year of establishment:</Dt>
+      <Dd>{exchange.year_established}</Dd>
+      <Dt>URL:</Dt>
+      <Dd>{exchange.url}</Dd>
+      <Dt>Description:</Dt>
+      <Dd>{exchange.description}</Dd>
+    </Dl>
   );
 };
 

@@ -1,5 +1,6 @@
 import type { ReactElement } from 'react';
 import type { NextPage } from 'next';
+import Image from 'next/image';
 
 import Layout from 'parts/Layout';
 import SFTable, {
@@ -53,7 +54,11 @@ const Home: NextPage<Props> = ({ exchanges }) => {
                 {item.url}
               </SFTd>
               <SFTd>
-                {item.image}
+                <Image
+                  src={item.image}
+                  alt='Logo of the exchange'
+                  height={48}
+                  width={48} />
               </SFTd>
               <SFTd>
                 {item.trust_score_rank}

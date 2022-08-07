@@ -1,0 +1,3 @@
+const EXCHANGE_COUNT = 10;
+
+export { EXCHANGE_COUNT };

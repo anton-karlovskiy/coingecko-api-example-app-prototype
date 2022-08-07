@@ -1,4 +1,4 @@
-interface CoingeckoExchangeResponse {
+interface CoingeckoExchange {
   country: string;
   description: string;
   has_trading_incentive: boolean;
@@ -14,5 +14,5 @@ interface CoingeckoExchangeResponse {
 }
 
 export type {
-  CoingeckoExchangeResponse
+  CoingeckoExchange
 };

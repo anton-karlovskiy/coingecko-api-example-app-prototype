@@ -1,3 +1,15 @@
+import type { NextPage } from 'next';
+import type { AppProps } from 'next/app';
+import type { ReactElement, ReactNode } from 'react';
+
+type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode;
+}
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+}
+
 interface CoingeckoExchange {
   country: string;
   description: string;
@@ -14,5 +26,7 @@ interface CoingeckoExchange {
 }
 
 export type {
-  CoingeckoExchange
+  CoingeckoExchange,
+  NextPageWithLayout,
+  AppPropsWithLayout
 };

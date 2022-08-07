@@ -1,15 +1,17 @@
+import type { ReactElement } from 'react';
 import type { NextPage } from 'next';
 
+import Layout from 'parts/Layout';
 import SFTable, {
   SFThead,
   SFTr,
   SFTh,
   SFTbody,
   SFTd
-
 } from 'components/UI/SFTable';
 import { EXCHANGE_COUNT } from 'config/general';
 import { CoingeckoExchange } from 'types/general.d';
+import type { NextPageWithLayout } from 'types/general.d';
 
 interface Props {
   exchanges: Array<CoingeckoExchange>;
@@ -62,6 +64,12 @@ const Home: NextPage<Props> = ({ exchanges }) => {
       </SFTbody>
     </SFTable>
   );
+};
+
+(Home as NextPageWithLayout).getLayout = function getLayout(
+  page: ReactElement
+) {
+  return <Layout>{page}</Layout>;
 };
 
 export async function getServerSideProps() {

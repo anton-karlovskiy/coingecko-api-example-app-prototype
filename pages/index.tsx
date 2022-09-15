@@ -17,23 +17,18 @@ import SFTable, {
 } from 'components/UI/SFTable';
 import { EXCHANGE_COUNT } from 'config/general';
 import { COINGECKO_API_URL } from 'config/links';
-// ray test touch <
 import useQuery from 'utils/hooks/use-query';
 import {
   PAGES,
   ROUTE_PARAMS
 } from 'utils/constants/links';
-// ray test touch >
 import { CoingeckoExchange } from 'types/general.d';
 import type { NextPageWithLayout } from 'types/general.d';
 
-// ray test touch <
 const DEFAULT_PAGE_INDEX = 0;
 const DEFAULT_PAGE_LIMIT = EXCHANGE_COUNT;
-// ray test touch >
 
 const Home: NextPage = () => {
-  // ray test touch <
   const router = useRouter();
 
   useQuery(
@@ -63,13 +58,11 @@ const Home: NextPage = () => {
         setExchanges(theExchanges);
       } catch (error) {
         // TODO: add error handling UX using `react-error-boundary`
+        // eslint-disable-next-line no-console
         console.error('[Home]', error);
       }
     })();
   }, [pageIndex, pageLimit]);
-
-  console.log('pageIndex => ', pageIndex);
-  console.log('pageLimit => ', pageLimit);
 
   const handlePageIndexIncrement = () => {
     Router.replace({
@@ -79,7 +72,6 @@ const Home: NextPage = () => {
       }
     });
   };
-  // ray test touch >
 
   return (
     <>
@@ -147,6 +139,7 @@ const Home: NextPage = () => {
           })}
         </SFTbody>
       </SFTable>
+      {/* TODO: improve styling */}
       <button onClick={handlePageIndexIncrement}>Next</button>
     </>
   );

@@ -1,4 +1,3 @@
-// ray test touch <
 import * as React from 'react';
 // MEMO: inspired by https://twitter.com/JS_Cheerleader/status/1412969723579359233
 // TODO: should type properly
@@ -18,4 +17,3 @@ const useQuery = (handler: any, query: any): void => {
 };
 
 export default useQuery;
-// ray test touch >
